@@ -1,0 +1,26 @@
+  {
+    "name": "Quid",
+    "short_name":"Quid",
+    "manifest_version": 2,
+    "version":"1.0",
+    "description": "Estensione Chrome per accesso rapido al sito dell'Agenzia delle Entrate e download massivo istantaneo di fatture elettroniche.",
+    "icons": {
+      "128": "quid-icon.png"
+    },
+    "content_scripts":[
+      {
+        "matches":["https://*.agenziaentrate.gov.it/*"],
+        "js": [
+          "FileSaver.min.js",
+          "jszip.min.js",
+          "script-utenze.js",
+          "script-fatture.js"
+        ]
+      }
+    ],
+    "permissions":["activeTab","tabs","storage"],
+    "browser_action": {
+        "default_title": "Quid",
+        "default_popup": "popup.html"
+    }
+  }

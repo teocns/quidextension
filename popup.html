@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/mdb/css/mdb.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/fontawesome/css/all.min.css">
+
+    <script type="text/javascript" src="popup.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+<div class="p-3 d-flex flex-row font-weight-bolder menu" style="background: #5640A6;">
+    <img src="logo-quid-white.png" style="max-width: 128px;">
+    <div class="d-flex flex row flex-1 justify-content-center align-items-center">
+        <a href="#" class="active switch-tab" id="switch-tab-panel">Pagina principale</a>
+        <a href="#" class="switch-tab" id="switch-tab-license">Licenza</a>
+    </div>
+</div>
+<div class="position-relative">
+
+    <div data-tab class="d-none flex-column animated fadeIn faster h-100" id="panel">
+
+        <div class="p-3 d-flex flex-column">
+            <div class="d-flex flex-row">
+                <div class="col-6">
+                    <small class="p-2 text-muted letter-spaced font-weight-bold text-uppercase">Area di accesso rapido</small>
+                    <div style="font-size: 14px; font-weight: 400;" class="mt-2">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="loginIvaservizi" name="materialExampleRadios"
+                                   checked>
+                            <label class="form-check-label" for="loginIvaservizi">Fatture e corrispettivi</label>
+                        </div>
+
+                        <!-- Material checked -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="loginCassettoFiscale" name="materialExampleRadios">
+                            <label class="form-check-label" for="loginCassettoFiscale">Cassetto fiscale</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <small class=" mb-0 text-muted letter-spaced font-weight-bold text-uppercase">Link utili</small>
+                    <div class="d-flex flex-column mt-2">
+                        <a href="#" class="small"  id="goToFattureEmesse">Fatture emesse</a>
+                        <a href="#" class="small" id="goToFattureRicevute">Fatture ricevute</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <small class="p-2 text-muted ml-3 mt-2">Effettua l'accesso all'area selezionata facendo click sul nome di un utenza oppure sull'icona <i class="fas fa-sign-in dark-grey-text ml-1" style="font-size: 1rem"></i>
+            </small>
+            <div class="custom-control custom-switch ml-4 mt-3 font-weight-bolder mb-1">
+                <input type="checkbox" class="custom-control-input" id="switch_fatture" checked>
+                <label class="custom-control-label" for="switch_fatture"
+                    style="    font-size: 14px;
+    padding-top: 1px;"
+                >Attiva il pulsante di <strong>download istantaneo</strong> sulla pagina <strong>Fatture Ricevute</strong> o <strong>Fatture Emesse</strong></label>
+            </div>
+
+
+
+        </div>
+
+        <div class="p-3 d-flex flex-column border-top bg-fb flex-1">
+            <div class="d-flex flex-row justify-content-between align-items-center">
+                <small class="ml-2 letter-spaced font-weight-bold text-muted text-uppercase">Utenze</small>
+                <div class="d-flex flex-row-reverse align-items-center md-form form-sm my-0 px-2" style="flex-basis:33%;">
+
+                    <input class="form-control form-control-sm ml-3 w-100" type="text"
+                           placeholder="Cerca utenza.."
+                           aria-label="Search" id="search">
+                    <i class="fas fa-search text-muted" aria-hidden="true"></i>
+                </div>
+            </div>
+
+
+            <table class="table table-striped table-sm" style="width:100%;">
+                <thead>
+                <tr width="100%">
+                    <th scope="col" style="min-width: 	100px">Nome</th>
+                    <th scope="col" style="min-width: 	100px">Utenza</th>
+                    <th scope="col" style="min-width: 	50px">Password</th>
+                    <th scope="col" style="min-width: 	50px">Pin</th>
+                    <th scope="col" style="min-width: 	100px">Incaricato</th>
+                    <th scope="col" style="min-width: 	20px"></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="d-flex flex-column m-2" id="after-table">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <button href="#" class="btn btn-sm btn-indigo" id="showAddNewUser">Aggiungi nuova utenza</button>
+
+                    <!--<a  href="#" name="gotoHome">Vai al Portale</a>-->
+
+
+                </div>
+
+                <div class="d-none flex-column mt-3 animated fadeIn fast" id="addNewUserForm">
+                    <small class="text-muted letter-spaced font-weight-bold" id="infoTip"></small>
+                    <input data-user name="id" type="hidden"/>
+                    <input data-user name="name" type="text" class="form-control mt-2" placeholder="Nome indicativo"/>
+                    <input data-user name="user" type="text" class="form-control mt-2" placeholder="Utenza"/>
+                    <input data-user name="pass" type="text" class="form-control mt-2" placeholder="Password"/>
+                    <input data-user name="pin" type="text" class="form-control mt-2" placeholder="Pin"/>
+                    <input data-user name="incaricato" type="text" class="form-control mt-2"
+                           placeholder="Incaricato (lasciare vuoto se non presente)"/>
+
+
+                    <small class="red-text font-weight-bold mt-3 d-none" id="incorrect-data-error">Verifica i dati che hai inserito e riprova</small>
+                    <div class="d-flex flex-row mt-3" id="add-new-user-button-group">
+                        <button class="btn btn-indigo btn-sm" id="addNewUser">Aggiungi utenza</button>
+                        <button class="btn btn-outline-indigo btn-sm" id="abortAddNewUser">Annulla</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div data-tab class="flex-column p-4 animated fadeIn faster d-flex " id="license">
+
+
+        <small class="letter-spaced text-muted font-weight-bold text-uppercase mt-3">Licenza corrente </small>
+
+        <p class="font-weight-bolder mt-2 mb-0" id="current-license">Nessuna</p>
+
+
+
+
+
+        <small class="letter-spaced text-muted font-weight-bold text-uppercase mt-3">Stato servizio</small>
+        <div class="d-inline">
+
+            <p class="font-weight-bolder mt-2 mb-0" id="license-status">-</p>
+            <a href="#" class="mb-n2 d-none font-weight-bolder" id="activate-license-button">Attiva</a>
+        </div>
+
+        <div class="d-none flex-row align-items-center mt-3 animated fadeIn faster" id="license-input-form">
+            <input class="form-control flex-1" type="text" placeholder="Inserisci qui la tua licenza.." id="license-input"/>
+            <button class="btn btn-indigo btn-md" id="activate-license">Attiva</button>
+        </div>
+    </div>
+
+    <div style="
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    display: none;
+    justify-content: center;
+    background: #fefefe;
+    font-weight: 400;
+
+    color: #565656;
+"
+         id="loading"
+    >
+        <p>Caricamento...</p>
+    </div>
+</div>
+</body>
+
+
+</html>

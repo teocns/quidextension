@@ -1,0 +1,84 @@
+
+thead th{
+	
+	color:#6C757D;
+}
+
+table td{
+	font-weight: 400;
+}
+
+.cursor-pointer{
+	cursor: pointer;
+}
+
+table.table a{
+	color:#3f51b5!important;
+}
+
+.letter-spaced{
+	letter-spacing: 1px;
+}
+.bg-fb{
+    background: #fbfbfb;
+}
+body, html {
+            width: 780px;
+
+            font-size: 16px;
+            background: #fefefe;
+        }
+
+        .menu a {
+            font-weight: 300;
+            color: #fafafa;
+            transition: font-weight .2s;
+            padding: 0 1rem;
+            font-size: 17px;
+        }
+
+        .menu a:hover {
+            color: #f0e1fa;
+        }
+
+        .menu a.active {
+            font-weight: 400;
+        }
+
+        .letter-spaced {
+            letter-spacing: 1px;
+        }
+
+        .form-check{
+            padding-left:.5rem;
+        }
+
+
+.switch-tab{
+	position:relative;
+    padding:0.25rem 0!important;
+    margin: 0 1rem;
+}
+
+.switch-tab::after{
+	content: " ";
+	position: absolute;
+	left:0;
+	bottom:0;
+	height: 2px;
+	background: white;
+	transition: all .2s;
+    transform-origin: 50% 50%;
+    transform: scale(0, 0);
+    width:100%;
+}
+.switch-tab.active::after{
+    transform:  scale(1, 1);
+
+}
+
+
+.j2store-cart-table th:nth-child(2),.j2store-cart-table td:nth-child(2),{
+
+}
+
